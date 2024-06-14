@@ -9,9 +9,9 @@ const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" })
   const [isLoading, setIsLoading] = useState(false);
-  const [currentAnimation,setCurrentanimation]=useState('idle')
+  const [currentAnimation, setCurrentanimation] = useState('idle')
 
-  const {alert , showAlert , hideAlert}=useAlert();
+  const { alert, showAlert, hideAlert } = useAlert();
 
 
   const handleChange = (e) => {
@@ -37,35 +37,35 @@ const Contact = () => {
       import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
     ).then(() => {
       setIsLoading(false);
-     showAlert({show:true , text :'Message sent successfully!',type:'success'})
-      setTimeout(()=>{
+      showAlert({ show: true, text: 'Message sent successfully!', type: 'success' })
+      setTimeout(() => {
         hideAlert();
         setCurrentanimation('idle')
         setForm({ name: '', email: '', message: '' })
-      },[3000])
-   
+      }, [3000])
+
     }).catch((error) => {
       setIsLoading(false);
       console.log(error);
       setCurrentanimation('idle')
       //show errorr message
-      showAlert({show:true , text :'I didnt receive your message',type:'danger'})
+      showAlert({ show: true, text: 'I didnt receive your message', type: 'danger' })
     })
   }
-  const handleFocus = () => { 
+  const handleFocus = () => {
     setCurrentanimation('walk')
   }
   const handleBlur = () => {
     setCurrentanimation('idle')
-   }
+  }
 
 
 
 
   return (
     <section className='relative flex lg:flex-row flex-col max-container h-[100vh]'>
-      {alert.show   && <Alert {...alert} /> }
-     
+      {alert.show && <Alert {...alert} />}
+
       <div className='flex-1 min-w-[50%] flex flex-col'>
         <h1 className='head-text'>Get in Touch</h1>
         <form action="" className="w-full flex flex-col gap-7 mt-14" onSubmit={handleSubmit}>
@@ -102,27 +102,27 @@ const Contact = () => {
 
       </div>
       <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
-  <Canvas
-    camera={{
-      position: [0, 0, 5],
-      fov: 75,
-      near: 0.1,
-      far: 1000,
-    }}
-  >
-    <directionalLight intensity={2.5} position={[0, 0, 1]} />
-    <ambientLight intensity={1} />
+        <Canvas
+          camera={{
+            position: [0, 0, 5],
+            fov: 75,
+            near: 0.1,
+            far: 1000,
+          }}
+        >
+          <directionalLight intensity={2.5} position={[0, 0, 1]} />
+          <ambientLight intensity={1} />
 
-    <Suspense fallback={<Loader />}>
-      <Fox
-        currentAnimation={currentAnimation}
-        position={[0.5, 0.35, 0]}
-        rotation={[12.625, -0.6, 0]}
-        scale={[0.5, 0.5, 0.5]} // Fix the scale array
-      />
-    </Suspense>
-  </Canvas>
-</div>
+          <Suspense fallback={<Loader />}>
+            <Fox
+              currentAnimation={currentAnimation}
+              position={[0.5, 0.35, 0]}
+              rotation={[12.625, -0.6, 0]}
+              scale={[0.5, 0.5, 0.5]} // Fix the scale array
+            />
+          </Suspense>
+        </Canvas>
+      </div>
 
 
 
@@ -131,3 +131,8 @@ const Contact = () => {
 }
 
 export default Contact
+
+// 1. git init
+// 2. git add . Full stop lgana hai
+// 3. git commit -m "description" inverted commas bhi lgane hai
+// 4. Fir side panel me jha se phle krti thi push wha se publish branch krdo public
