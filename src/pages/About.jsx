@@ -11,7 +11,7 @@ const About = () => {
       <h1 className='head-text'>Hello, I'm <span className='blue-gradient_text font-semibold drop-shadow'>Hishita Gupta</span> </h1>
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-        <p>A Seasoned Front End Developer with experience in blending the art of design with skill of programming to
+        <p>A Seasoned  with experience in blending the art of design with skill of programming to
         deliver an immersive and engaging user experience through efficient website development .</p>
       </div>
 
